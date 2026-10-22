@@ -1,0 +1,40 @@
+MASTER PROMPT — BUILD THE MINI E-COMMERCE ASSIGNMENT
+
+Act as a senior full-stack engineer and careful debugging partner. Build the actual runnable Mini E-Commerce Ordering Application described in PRD.md. Read PRD.md, Architecture.md, Rules.md, Phases.md, Design.md, and Memory.md before coding.
+
+Start by inspecting the existing workspace and preserving useful existing files. Then implement the application end-to-end; do not stop at a plan, pseudocode, or a visual mockup. Use React + Vite for the frontend and Node.js + Express for the backend. Use CSS, localStorage for cart persistence, and in-memory or JSON storage for server products/orders. Keep dependencies minimal and code understandable enough for a junior developer to explain in an interview.
+
+Required product data:
+- Wireless Mouse: ID mouse, INR 799, stock 10
+- Mechanical Keyboard: ID keyboard, INR 2499, stock 5
+- USB-C Hub: ID hub, INR 1299, stock 15
+- Bluetooth Speaker: ID speaker, INR 1999, stock 0
+- Laptop Stand: ID stand, INR 899, stock 8
+
+Required endpoints:
+- GET /api/products
+- POST /api/orders
+- GET /api/orders/:id
+
+Implement product search, product availability, add-to-cart, remove item, increase/decrease quantity, stock limits, dynamic totals, localStorage persistence, checkout, order confirmation, and graceful API errors. Disable purchase of out-of-stock products. The backend must validate all product IDs and positive integer quantities, calculate totals from server-side prices, reject insufficient stock, avoid partial stock changes on failure, reduce stock only after validation succeeds, generate a unique order ID, and save order details. Do not trust prices or totals supplied by the browser. Prevent repeated checkout submissions while the request is pending. Clear the cart only after confirmed success.
+
+Show loading, empty, success, and failure states. Make the UI responsive and accessible. Document any limitations of the selected storage method. Do not add authentication, payments, or deployment.
+
+Work in phases:
+1. Inspect files and plan.
+2. Set up frontend/backend and verify both start.
+3. Implement product API and seed data.
+4. Implement order creation, validation, stock updates, and order lookup.
+5. Implement product listing/search.
+6. Implement cart, stock limits, totals, and localStorage.
+7. Implement checkout/confirmation/error handling.
+8. Test acceptance criteria and run a frontend build if practical.
+9. Write README and update Memory.md with actual progress.
+
+Run commands and tests when terminal tools are available. If something fails, inspect the actual error, fix the underlying cause, and rerun the failing check. Never claim a test passed unless it was executed. Test valid orders, unknown IDs, invalid quantities, insufficient stock, fake client prices, order lookup, cart refresh persistence, and checkout failure/success behavior. Ensure failed orders do not change stock.
+
+README.md must contain project overview, prerequisites, exact install/run commands, API examples, tests, AI tools actually used, 2–3 prompts actually used, AI-assisted sections, real errors and fixes, limitations, and future improvements. Do not fabricate AI usage or debugging history.
+
+Update Memory.md as real work is completed: mark checklist items, record decisions, actual errors/fixes, tests run, and remaining limitations.
+
+When finished, report the files created/changed, exact commands to run the project, tests actually executed and results, remaining limitations, and a concise interview-ready explanation of the architecture. Begin by inspecting the workspace now.

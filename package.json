@@ -1,0 +1,14 @@
+{
+  "name": "mini-ecommerce",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Mini E-Commerce Ordering Application (React + Vite client, Express API)",
+  "scripts": {
+    "install:all": "npm --prefix server install && npm --prefix client install",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "start:server": "npm --prefix server start",
+    "build": "npm --prefix client run build",
+    "test": "npm --prefix server test && npm --prefix client test"
+  }
+}

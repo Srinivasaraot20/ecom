@@ -1,0 +1,16 @@
+{
+  "name": "mini-ecommerce-server",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Express API for the Mini E-Commerce Ordering Application",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}
