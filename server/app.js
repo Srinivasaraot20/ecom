@@ -69,3 +69,7 @@ export function createApp(store = createStore()) {
 
   return app;
 }
+
+const defaultApp = createApp();
+export default defaultApp;
+
