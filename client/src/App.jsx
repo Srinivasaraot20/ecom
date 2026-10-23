@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import { createOrder, fetchProducts } from './api.js';
 import {
   addToCart,
@@ -13,8 +13,9 @@ import {
 } from './cart.js';
 import ProductList from './components/ProductList.jsx';
 import Cart from './components/Cart.jsx';
-import OrderConfirmation from './components/OrderConfirmation.jsx';
-import Toast from './components/Toast.jsx';
+
+const OrderConfirmation = lazy(() => import('./components/OrderConfirmation.jsx'));
+const Toast = lazy(() => import('./components/Toast.jsx'));
 
 // Brand Planet Mark SVG
 function BrandLogo() {
@@ -552,11 +553,13 @@ export default function App() {
       {/* Main Content Area */}
       {order ? (
         <main className="container page-main" id="main">
-          <OrderConfirmation
-            order={order}
-            onContinue={handleContinueShopping}
-            onViewOrderError={(msg) => setCheckoutError(msg)}
-          />
+          <Suspense fallback={<div className="container" style={{ padding: '40px 0' }}>Loading order details…</div>}>
+            <OrderConfirmation
+              order={order}
+              onContinue={handleContinueShopping}
+              onViewOrderError={(msg) => setCheckoutError(msg)}
+            />
+          </Suspense>
         </main>
       ) : (
         <>
@@ -710,7 +713,11 @@ export default function App() {
       </div>
 
       {/* Toast notifications */}
-      <Toast toasts={toasts} onDismiss={dismissToast} />
+      {toasts.length > 0 && (
+        <Suspense fallback={null}>
+          <Toast toasts={toasts} onDismiss={dismissToast} />
+        </Suspense>
+      )}
     </div>
   );
 }
