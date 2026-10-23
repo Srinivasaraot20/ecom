@@ -1,4 +1,4 @@
-const FALLBACK_API_BASE_URL = 'http://localhost:4000/api';
+const FALLBACK_API_BASE_URL = '/api';
 const REQUEST_TIMEOUT_MS = 15000;
 
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || FALLBACK_API_BASE_URL).replace(/\/+$/, '');
