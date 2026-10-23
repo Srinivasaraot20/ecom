@@ -44,7 +44,10 @@ export default function ProductCard({
             src={imageUrl}
             alt={product.name}
             className="product-image"
+            width="600"
+            height="450"
             loading="lazy"
+            decoding="async"
             onError={() => setImageFailed(true)}
           />
         ) : (
@@ -77,15 +80,9 @@ export default function ProductCard({
           className="button button-primary product-add"
           onClick={handleAddClick}
           disabled={!canAdd}
-          aria-label={
-            isOutOfStock
-              ? `${product.name} is out of stock`
-              : atMaximum
-                ? `Maximum available quantity of ${product.name} is already in your cart`
-                : `Add ${product.name} to cart`
-          }
         >
           {buttonLabel}
+          <span className="sr-only"> — {product.name}</span>
         </button>
       </div>
     </article>

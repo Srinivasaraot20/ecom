@@ -117,7 +117,10 @@ const Cart = forwardRef(function Cart(
                         src={imageUrl}
                         alt={product.name}
                         className="cart-line-img"
+                        width="48"
+                        height="48"
                         loading="lazy"
+                        decoding="async"
                         onError={(e) => {
                           e.currentTarget.style.display = 'none';
                         }}

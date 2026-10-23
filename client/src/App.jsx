@@ -364,7 +364,7 @@ export default function App() {
       <header className="site-header">
         <div className="container header-top-bar">
           {/* Brand Left */}
-          <a className="brand" href="/" onClick={handleBrandClick} aria-label="Orbit Supply home">
+          <a className="brand" href="/" onClick={handleBrandClick}>
             <BrandLogo />
             <div className="brand-text">
               <span className="brand-name">Orbit Supply</span>
@@ -422,11 +422,10 @@ export default function App() {
                   e.preventDefault();
                   scrollToCart();
                 }}
-                aria-label={`Cart, ${cartCount} ${cartCount === 1 ? 'item' : 'items'}`}
               >
                 <div className="cart-icon-wrap">
                   <HeaderCartIcon />
-                  <span className="header-cart-count" aria-hidden="true">
+                  <span className="header-cart-count" aria-label={`${cartCount} items`}>
                     {cartCount}
                   </span>
                 </div>
@@ -566,11 +565,17 @@ export default function App() {
             <div className="container hero-container">
               {/* Desktop Banner View (>= 1024px) */}
               <div className="hero-banner-wrapper hero-desktop-banner">
-                <img
-                  src="/banner.png"
-                  alt="Small upgrades. Better workdays. Useful desk essentials, ready for your setup."
-                  className="hero-banner-image"
-                />
+                <picture>
+                  <source srcSet="/banner.webp" type="image/webp" />
+                  <img
+                    src="/banner.png"
+                    alt="Small upgrades. Better workdays. Useful desk essentials, ready for your setup."
+                    className="hero-banner-image"
+                    width="1024"
+                    height="342"
+                    fetchPriority="high"
+                  />
+                </picture>
               </div>
 
               {/* Mobile & Tablet Dedicated Responsive Banner (< 1024px) */}
@@ -601,11 +606,17 @@ export default function App() {
                 </div>
 
                 <div className="hero-mobile-image-wrap">
-                  <img
-                    src="/banner.png"
-                    alt="Desk accessories setup"
-                    className="hero-mobile-img"
-                  />
+                  <picture>
+                    <source srcSet="/banner.webp" type="image/webp" />
+                    <img
+                      src="/banner.png"
+                      alt="Desk accessories setup"
+                      className="hero-mobile-img"
+                      width="1024"
+                      height="342"
+                      fetchPriority="high"
+                    />
+                  </picture>
                 </div>
               </div>
             </div>
